@@ -77,4 +77,4 @@ Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstats
 2. In order to undo "add"ing to the stage, you have to type `git reset` and the file's name. 
 
 #### undo push 
-* In your repository, type in `git push -f origin HEAD^:master` to undo last your push back 
+* In your repository, type in `git push -f origin HEAD^:master` to undo your last push and revert it back to the last changes. 
