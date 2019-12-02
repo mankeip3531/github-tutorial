@@ -11,30 +11,52 @@ In addition, git is a version control system that manage a project and its files
 ---
 ## Initial Setup
 #### The Importance of SSH Key
-SSH key is an alternate way to identify yourself without entering your password and username. SSH is important because we often work with github repository and we have to identify ourselves by entering our username and password; however, we can authenticate the remote and user by using SSH key which is more convenient.
+**SSH key** is an alternate way to identify yourself without entering your password and username. SSH is important because we often work with github repository and we have to identify ourselves by entering our username and password; however, we can authenticate the remote and user by using SSH key which is more convenient.
 ####  before Inital Setup:
 * create an account
 * enter your username and password for your accout
 ---
-1. type the following: git config --global user.email "you@example.com"
-2. git config --global user.name "Your Name"
+1. In your command line, type the following: `git config --global user.email "you@example.com"`
+    * Don't copy/paste.
+    * Remember to use YOUR email address.
+    * YES, you need the quotes.
+    * Example: `git config --global user.email "johnd1234@hstat.org"`
+2. Then type `git config --global user.name "Your Name"`
+    * Example: `git config --global user.name "John Doe"`
 * Make sure you are in the root directory by doing cd
-3. ssh-keygen -t rsa -b 4096 -C "you@example.com" then slowly press ENTER repeatedly until you see something likeThe key's randomart image.
-4. eval "$(ssh-agent -s)" starts the agent in the background
-5. ls -al ~/.ssh you should now see a file named id_rsa.pub
-6. cat ~/.ssh/id_rsa.pub then copy all of the result to your clipboard (it should start with ssh-rsa and end with your email address)
+3. `ssh-keygen -t rsa -b 4096 -C "you@example.com"` then slowly press `ENTER` repeatedly until you see something like:
+The key's randomart image is:
+```
++--[ RSA 4096]----+
+|       .o o..    |
+|       o +Eo     |
+|        + .      |
+|         . + o   |
+|        S o = * o|
+|           . o @.|
+|            . = o|
+|           . o   |
+|            o.   |
++-----------------+
+```
+4. `eval "$(ssh-agent -s)"` starts the agent in the background
+5. `ls -al ~/.ssh` you should now see a file named id_rsa.pub
+6. `cat ~/.ssh/id_rsa.pub` then copy all of the result to your clipboard (it should start with `ssh-rsa` and end with your email address)
 7. Go to [https://github.com/settings/keys](https://github.com/settings/keys) > New SSH Key
   * Title: ide50
   * Key: paste your ssh key
   * Press the green Add SSH key button
-8. Back in your cs50 IDE, do sudo nano ~/.ssh/config
+8. Back in your cs50 IDE, do sudo nano `~/.ssh/config`
+  * Example: git config --global user.name "John Doe"
 9. Paste the following:
+```
 Host github.com
 Hostname ssh.github.com
 Port 443
-10. control+X to exit, then press Y then ENTER
-11. ssh -T git@github.com
-12. Type yes, press ENTER, and you should see
+```
+10. `control+X` to exit, then press `Y` then ENTER
+11. `ssh -T git@github.com`
+12. Type `yes`, press `ENTER`, and you should see
 `Hi "username"! You've successfully authenticated, but GitHub does not provide shell access.`
 
 Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstatsep/ide50)
@@ -61,20 +83,23 @@ Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstats
 
 ---
 ## Rolling Back Changes
-#### undo commit
-* git revert (a commit message) = revert back to the commit where you want
-1. type `git log` to see all the commits
-2. choose the commit that you want to revert and copy the SHA(unqiue commit IDs)
-3. use git revert (SHA) or git revert head(this can bring you back to your latest commit.)  
-4. press q to quit `git log` if you don't want any changes
+#### undo commit to add
+* git reset --soft HEAD~1
 
-#### undo edit 
-1. type `git status`
-2. In order to undo any edits you've done since your latest commit, you have to type `git checkout` and the file's name.
+#### undo commit to edit
+* git reset HEAD~1
+#### undo edit (revert your files back to your last commit)
+* git checkout -- filename
 
-#### undo add 
-1. type `git status`
-2. In order to undo "add"ing to the stage, you have to type `git reset` and the file's name. 
 
-#### undo push 
-* In your repository, type in `git push -f origin HEAD^:master` to undo your last push and revert it back to the last changes. 
+#### undo add (unstage your files)
+* git reset HEAD filename
+
+#### undo push
+* git reset --hard HEAD~1
+
+---
+## error handling
+* if you did init in the wrong directory, you type in `rm -rf .git` to remove the repository
+* In order to remove a repository or directory completely, you use `rm -rf (directory's name)`
+
