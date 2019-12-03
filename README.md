@@ -5,16 +5,18 @@ _by Alan Po_
 ---
 ## Git vs. GitHub
 Github is a code storing platform for version control and collaboration, but it requires git.
-In addition, git is a version control system that manage a project and its files inside of a repository(a system or directory that stores multiple versions of files), but it doesn't require github.
+Git is a version control system that manage a project and its file inside of a repository(a system or directory that stores multiple versions of files), but it doesn't require github.
 
 
 ---
 ## Initial Setup
+
 #### The Importance of SSH Key
 **SSH key** is an alternate way to identify yourself without entering your password and username. SSH is important because we often work with github repository and we have to identify ourselves by entering our username and password; however, we can authenticate the remote and user by using SSH key which is more convenient.
-####  before Inital Setup:
-* Create an account
-* Enter your username and password for your accout
+
+####  Before Inital Setup:
+* Create a GitHub account
+* Enter your username and password for your account
 ---
 1. In your command line, type the following: `git config --global user.email "you@example.com"`
     * Don't copy/paste.
@@ -64,20 +66,21 @@ Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstats
 
 ---
 ## Repository Setup
-1. Create a new directory using `mkdir`
+1. Create a new directory using `mkdir filename`
 2. Move into the directory using `cd` and initialize the directory using `git init`
-3. After you finish making edits in your repository, you add the files on the stage using `git add`
-4. After you add the files on the stage, you commit the files using `git commit -m`
-5. Therefore you should create a new repository on github
-6. In order to setup the repository, you link the remote and local together. You copy and paste the two link that say "push an existing repository from the command line"
-7. At the end, you push the commits to your remote using `git push -u origin master`
+3. Type `Touch README.md` to create a file within the repo
+4. After you finish making edits in your file, you add the files on the stage using `git add .` to save **EVERY** changes
+5. After you add the files on the stage, you commit the file using `git commit -m"message here"`
+6. Then, you should create a new repository on github
+7. In order to setup the repository, you link the remote and local together. You copy and paste the two link that say "push an existing repository from the command line"
+8. At the end, you push the commits to your remote using `git push `
 
 ---
 ## Workflow & Commands
 * `git init` = initializes git in your directory into repository for version control
-* `git status` = see which files have been edited since the last commit
-* `git add` (file's name) = add the files on the stage to be committed
-* `git commit` -m "a message" = commit all the files on the stage
+* `git status` = see which file have been edited since the last commit
+* `git add ` (file's name) = add the file on the stage manually to be committed
+* `git commit -m "a message"` = take a snapshot of the file on the stage
 * `git push` = upload current local repository to the remote repository, including all of your commits and edits
 
 
@@ -100,6 +103,6 @@ Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstats
 
 ---
 ## error handling
-* if you did init in the wrong directory, you type in `rm -rf .git` to remove the repository
+* If you did init in the wrong directory, you type in `rm -rf .git` to remove the repository
 * In order to remove a repository or directory completely, you use `rm -rf (directory's name)`
 
