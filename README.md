@@ -13,8 +13,8 @@ In addition, git is a version control system that manage a project and its files
 #### The Importance of SSH Key
 **SSH key** is an alternate way to identify yourself without entering your password and username. SSH is important because we often work with github repository and we have to identify ourselves by entering our username and password; however, we can authenticate the remote and user by using SSH key which is more convenient.
 ####  before Inital Setup:
-* create an account
-* enter your username and password for your accout
+* Create an account
+* Enter your username and password for your accout
 ---
 1. In your command line, type the following: `git config --global user.email "you@example.com"`
     * Don't copy/paste.
@@ -64,39 +64,39 @@ Here is the link ["Tutorial of the Full Github Setup"](https://github.com/hstats
 
 ---
 ## Repository Setup
-1. create a new directory using `mkdir`
-2. move into the directory using `cd` and initialize the directory using `git init`
-3. after you finish making edits in your repository, you add the files on the stage using `git add`
-4. after you add the files on the stage, you commit the files using `git commit -m`
-5. therefore you should create a new repository on github
+1. Create a new directory using `mkdir`
+2. Move into the directory using `cd` and initialize the directory using `git init`
+3. After you finish making edits in your repository, you add the files on the stage using `git add`
+4. After you add the files on the stage, you commit the files using `git commit -m`
+5. Therefore you should create a new repository on github
 6. In order to setup the repository, you link the remote and local together. You copy and paste the two link that say "push an existing repository from the command line"
 7. At the end, you push the commits to your remote using `git push -u origin master`
 
 ---
 ## Workflow & Commands
-* git init = initializes git in your directory into repository for version control
-* git status = see which files have been edited since the last commit
-* git add (file's name) = add the files on the stage to be committed
-* git commit -m "a message" = commit all the files on the stage
-* git push = upload current local repository to the remote repository, including all of your commits and edits
+* `git init` = initializes git in your directory into repository for version control
+* `git status` = see which files have been edited since the last commit
+* `git add` (file's name) = add the files on the stage to be committed
+* `git commit` -m "a message" = commit all the files on the stage
+* `git push` = upload current local repository to the remote repository, including all of your commits and edits
 
 
 ---
 ## Rolling Back Changes
 #### undo commit to add
-* git reset --soft HEAD~1
+* `git reset` --soft HEAD~1
 
 #### undo commit to edit
-* git reset HEAD~1
+* `git reset` HEAD~1
 #### undo edit (revert your files back to your last commit)
-* git checkout -- filename
+* `git checkout` -- filename
 
 
 #### undo add (unstage your files)
-* git reset HEAD filename
+* `git reset` HEAD filename
 
 #### undo push
-* git reset --hard HEAD~1
+* `git reset` --hard HEAD~1
 
 ---
 ## error handling
